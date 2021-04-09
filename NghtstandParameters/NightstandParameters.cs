@@ -4,154 +4,129 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NightstandParameters
+namespace ModelParameters
 {
     public class NightstandParameters
     {
         /// <summary>
+        /// Лист параметров
+        /// </summary>
+        private List<Parameter> parameters = new List<Parameter>();
+
+        /// <summary>
         /// Поле, содержащее высоту столешницы 
         /// </summary>
-        private Parameter _topHeight;
+        public Parameter TopLength { get; set; }
 
         /// <summary>
         /// Поле, содержащее ширину столешницы
         /// </summary>
-        private Parameter _topWidth;
+        public Parameter TopWidth { get; set; }
 
         /// <summary>
         /// Поле, содержащее глубину столешницы
         /// </summary>
-        private Parameter _topDeep;
+        public Parameter TopThickness { get; set; }
 
         /// <summary>
         /// Поле, содержащее высота "туловища"
         /// </summary>
-        private Parameter _bodyHeight;
+        public Parameter BoxHeight { get; set; }
 
         /// <summary>
         /// Поле, содержащее ширину "туловища"
         /// </summary>
-        private Parameter _bodyWidth;
+        public Parameter BoxLength { get; set; }
 
         /// <summary>
         /// Поле, содержащее глубину "туловища"
         /// </summary>
-        private Parameter _bodyDeep;
+        public Parameter BoxWidth { get; set; }
 
         /// <summary>
         /// Поле, содержащее высоту ящика
         /// </summary>
-        private Parameter _boxHeight;
+        public Parameter ShelfHeight { get; set; }
 
         /// <summary>
         /// Поле, содержащее ширину ящика
         /// </summary>
-        private Parameter _boxWidth;
+        public Parameter ShelfWidth { get; set; }
 
         /// <summary>
         /// Поле, содержащее длину ножек
         /// </summary>
-        private Parameter _footLength;
-
-        public Parameter TopHeight
-        {
-            get => _topHeight;
-            set
-            {
-                _topHeight = value;
-            }
-        }
-
-        public Parameter TopWidth
-        {
-            get => _topWidth;
-            set
-            {
-                _topWidth = value;
-            }
-        }
-
-        public Parameter TopDeep
-        {
-            get => _topDeep;
-            set
-            {
-                _topDeep = value;
-            }
-        }
-
-        public Parameter BodyHeight
-        {
-            get => _bodyHeight;
-            set
-            {
-                _bodyHeight = value;
-            }
-        }
-        public Parameter BodyWidth
-        {
-            get => _bodyWidth;
-            set
-            {
-                _bodyWidth = value;
-            }
-        }
-        public Parameter BodyDeep
-        {
-            get => _bodyDeep;
-            set
-            {
-                _bodyDeep = value;
-            }
-        }
-        public Parameter BoxHeight
-        {
-            get => _boxHeight;
-            set
-            {
-                _boxHeight = value;
-            }
-        }
-        public Parameter BoxWidth
-        {
-            get => _boxWidth;
-            set
-            {
-                _boxWidth = value;
-            }
-        }
-        public Parameter FootLength
-        {
-            get => _footLength;
-            set
-            {
-                _footLength = value;
-            }
-        }
+        public Parameter FootLength { get; set; }
 
         public void MaxValue()
         {
-            _bodyDeep.Value = _bodyDeep.MaximumValue;
-            _topHeight.Value = _topDeep.MaximumValue;
-            _footLength.Value = _footLength.MaximumValue;
-            _boxWidth.Value = _boxWidth.MaximumValue;
-            _boxHeight.Value = _boxHeight.MaximumValue;
-            _bodyWidth.Value = _bodyWidth.MaximumValue;
-            _topWidth.Value = _topWidth.MaximumValue;
-            _bodyHeight.Value = _bodyHeight.MaximumValue;
-            _topDeep.Value = _topDeep.MaximumValue;
+            BoxWidth.Value = BoxWidth.MaximumValue;
+            TopLength.Value = TopThickness.MaximumValue;
+            FootLength.Value = FootLength.MaximumValue;
+            ShelfWidth.Value = ShelfWidth.MaximumValue;
+            ShelfHeight.Value = ShelfHeight.MaximumValue;
+            BoxLength.Value = BoxLength.MaximumValue;
+            TopWidth.Value = TopWidth.MaximumValue;
+            BoxHeight.Value = BoxHeight.MaximumValue;
+            TopThickness.Value = TopThickness.MaximumValue;
         }
         public void MinValue()
         {
-            _bodyDeep.Value = _bodyDeep.MinimumValue;
-            _topHeight.Value = _topDeep.MinimumValue;
-            _footLength.Value = _footLength.MinimumValue;
-            _boxWidth.Value = _boxWidth.MinimumValue;
-            _boxHeight.Value = _boxHeight.MinimumValue;
-            _bodyWidth.Value = _bodyWidth.MinimumValue;
-            _topWidth.Value = _topWidth.MinimumValue;
-            _bodyHeight.Value = _bodyHeight.MinimumValue;
-            _topDeep.Value = _topDeep.MinimumValue;
+            BoxWidth.Value = BoxWidth.MinimumValue;
+            TopLength.Value = TopThickness.MinimumValue;
+            FootLength.Value = FootLength.MinimumValue;
+            ShelfWidth.Value = ShelfWidth.MinimumValue;
+            ShelfHeight.Value = ShelfHeight.MinimumValue;
+            BoxLength.Value = BoxLength.MinimumValue;
+            TopWidth.Value = TopWidth.MinimumValue;
+            BoxHeight.Value = BoxHeight.MinimumValue;
+            TopThickness.Value = TopThickness.MinimumValue;
+        }
+        /// <summary>
+        /// Свойство, присваивающее значение по умолчанию для зависимых параметров
+        /// </summary>
+        public void DefaultValue()
+        {
+            BoxWidth.Value = BoxWidth.DefaultValue;
+            TopLength.Value = TopLength.DefaultValue;
+            FootLength.Value = FootLength.DefaultValue;
+            ShelfWidth.Value = ShelfWidth.DefaultValue;
+            ShelfHeight.Value = ShelfHeight.DefaultValue;
+            BoxLength.Value = BoxLength.DefaultValue;
+            TopWidth.Value = TopWidth.DefaultValue;
+            BoxHeight.Value = BoxHeight.DefaultValue;
+            TopThickness.Value = TopThickness.DefaultValue;
+        }
+        public NightstandParameters()
+        {
+            this.BoxWidth = new Parameter("Ширина ящика",
+                200, 800, 400);
+            this.TopLength  = new Parameter(
+                "Длина столешницы", 200, 1000, 400);
+            this.FootLength = new Parameter("Длина ножек",
+                50, 800, 400);
+            this.BoxHeight = new Parameter("Высота ящика",
+                200, 800, 400);
+            this.BoxLength = new Parameter("Длина ящика",
+                200, 800, 400);
+            this.ShelfWidth = new Parameter("Ширина полки",
+                50, (this.BoxWidth.DefaultValue-20), 200);
+            this.ShelfHeight = new Parameter(
+                "Высота полки", 100, (this.BoxHeight.DefaultValue-20), 200);
+            this.TopWidth = new Parameter("Ширина столешницы",
+                250, 800, 400);
+            this.TopThickness = new Parameter("Толщина столешницы",
+                10, 100, 40);
+
+            parameters.Add(BoxWidth);
+            parameters.Add(TopLength);
+            parameters.Add(FootLength);
+            parameters.Add(ShelfWidth);
+            parameters.Add(ShelfHeight);
+            parameters.Add(BoxLength);
+            parameters.Add(TopWidth);
+            parameters.Add(BoxHeight);
+            parameters.Add(TopThickness);
         }
     }
 }
