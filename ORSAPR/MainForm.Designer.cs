@@ -1,7 +1,7 @@
 ﻿
 namespace ORSAPR
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -59,49 +59,49 @@ namespace ORSAPR
             // 
             // textBoxTopWidth
             // 
-            this.textBoxTopWidth.Location = new System.Drawing.Point(300, 36);
+            this.textBoxTopWidth.Location = new System.Drawing.Point(300, 39);
             this.textBoxTopWidth.Name = "textBoxTopWidth";
             this.textBoxTopWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxTopWidth.TabIndex = 1;
             // 
             // textBoxTopThickness
             // 
-            this.textBoxTopThickness.Location = new System.Drawing.Point(300, 64);
+            this.textBoxTopThickness.Location = new System.Drawing.Point(300, 67);
             this.textBoxTopThickness.Name = "textBoxTopThickness";
             this.textBoxTopThickness.Size = new System.Drawing.Size(100, 22);
             this.textBoxTopThickness.TabIndex = 2;
             // 
             // textBoxShelfWidth
             // 
-            this.textBoxShelfWidth.Location = new System.Drawing.Point(300, 209);
+            this.textBoxShelfWidth.Location = new System.Drawing.Point(300, 207);
             this.textBoxShelfWidth.Name = "textBoxShelfWidth";
             this.textBoxShelfWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxShelfWidth.TabIndex = 3;
             // 
             // textBoxFootLength
             // 
-            this.textBoxFootLength.Location = new System.Drawing.Point(300, 237);
+            this.textBoxFootLength.Location = new System.Drawing.Point(300, 235);
             this.textBoxFootLength.Name = "textBoxFootLength";
             this.textBoxFootLength.Size = new System.Drawing.Size(100, 22);
             this.textBoxFootLength.TabIndex = 4;
             // 
             // textBoxBoxLength
             // 
-            this.textBoxBoxLength.Location = new System.Drawing.Point(300, 122);
+            this.textBoxBoxLength.Location = new System.Drawing.Point(300, 123);
             this.textBoxBoxLength.Name = "textBoxBoxLength";
             this.textBoxBoxLength.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxLength.TabIndex = 5;
             // 
             // textBoxBoxHeight
             // 
-            this.textBoxBoxHeight.Location = new System.Drawing.Point(300, 150);
+            this.textBoxBoxHeight.Location = new System.Drawing.Point(300, 151);
             this.textBoxBoxHeight.Name = "textBoxBoxHeight";
             this.textBoxBoxHeight.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxHeight.TabIndex = 6;
             // 
             // textBoxShelfHeight
             // 
-            this.textBoxShelfHeight.Location = new System.Drawing.Point(300, 178);
+            this.textBoxShelfHeight.Location = new System.Drawing.Point(300, 179);
             this.textBoxShelfHeight.Name = "textBoxShelfHeight";
             this.textBoxShelfHeight.Size = new System.Drawing.Size(100, 22);
             this.textBoxShelfHeight.TabIndex = 7;
@@ -118,7 +118,7 @@ namespace ORSAPR
             // labelTopWedth
             // 
             this.labelTopWedth.AutoSize = true;
-            this.labelTopWedth.Location = new System.Drawing.Point(25, 39);
+            this.labelTopWedth.Location = new System.Drawing.Point(25, 42);
             this.labelTopWedth.Name = "labelTopWedth";
             this.labelTopWedth.Size = new System.Drawing.Size(146, 17);
             this.labelTopWedth.TabIndex = 9;
@@ -127,7 +127,7 @@ namespace ORSAPR
             // labelTopThickness
             // 
             this.labelTopThickness.AutoSize = true;
-            this.labelTopThickness.Location = new System.Drawing.Point(25, 67);
+            this.labelTopThickness.Location = new System.Drawing.Point(25, 70);
             this.labelTopThickness.Name = "labelTopThickness";
             this.labelTopThickness.Size = new System.Drawing.Size(155, 17);
             this.labelTopThickness.TabIndex = 10;
@@ -136,7 +136,7 @@ namespace ORSAPR
             // labelFootLength
             // 
             this.labelFootLength.AutoSize = true;
-            this.labelFootLength.Location = new System.Drawing.Point(25, 240);
+            this.labelFootLength.Location = new System.Drawing.Point(25, 238);
             this.labelFootLength.Name = "labelFootLength";
             this.labelFootLength.Size = new System.Drawing.Size(95, 17);
             this.labelFootLength.TabIndex = 11;
@@ -145,7 +145,7 @@ namespace ORSAPR
             // labelBoxLength
             // 
             this.labelBoxLength.AutoSize = true;
-            this.labelBoxLength.Location = new System.Drawing.Point(25, 125);
+            this.labelBoxLength.Location = new System.Drawing.Point(25, 126);
             this.labelBoxLength.Name = "labelBoxLength";
             this.labelBoxLength.Size = new System.Drawing.Size(97, 17);
             this.labelBoxLength.TabIndex = 12;
@@ -154,7 +154,7 @@ namespace ORSAPR
             // labelBoxHeight
             // 
             this.labelBoxHeight.AutoSize = true;
-            this.labelBoxHeight.Location = new System.Drawing.Point(25, 153);
+            this.labelBoxHeight.Location = new System.Drawing.Point(25, 154);
             this.labelBoxHeight.Name = "labelBoxHeight";
             this.labelBoxHeight.Size = new System.Drawing.Size(103, 17);
             this.labelBoxHeight.TabIndex = 13;
@@ -163,7 +163,7 @@ namespace ORSAPR
             // labelShelfHeight
             // 
             this.labelShelfHeight.AutoSize = true;
-            this.labelShelfHeight.Location = new System.Drawing.Point(25, 181);
+            this.labelShelfHeight.Location = new System.Drawing.Point(25, 182);
             this.labelShelfHeight.Name = "labelShelfHeight";
             this.labelShelfHeight.Size = new System.Drawing.Size(100, 17);
             this.labelShelfHeight.TabIndex = 14;
@@ -172,7 +172,7 @@ namespace ORSAPR
             // labelShelfWidth
             // 
             this.labelShelfWidth.AutoSize = true;
-            this.labelShelfWidth.Location = new System.Drawing.Point(25, 212);
+            this.labelShelfWidth.Location = new System.Drawing.Point(25, 210);
             this.labelShelfWidth.Name = "labelShelfWidth";
             this.labelShelfWidth.Size = new System.Drawing.Size(102, 17);
             this.labelShelfWidth.TabIndex = 15;
@@ -180,7 +180,7 @@ namespace ORSAPR
             // 
             // textBoxBoxWidth
             // 
-            this.textBoxBoxWidth.Location = new System.Drawing.Point(300, 94);
+            this.textBoxBoxWidth.Location = new System.Drawing.Point(300, 95);
             this.textBoxBoxWidth.Name = "textBoxBoxWidth";
             this.textBoxBoxWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxWidth.TabIndex = 16;
@@ -188,7 +188,7 @@ namespace ORSAPR
             // labelBoxWidth
             // 
             this.labelBoxWidth.AutoSize = true;
-            this.labelBoxWidth.Location = new System.Drawing.Point(25, 97);
+            this.labelBoxWidth.Location = new System.Drawing.Point(25, 98);
             this.labelBoxWidth.Name = "labelBoxWidth";
             this.labelBoxWidth.Size = new System.Drawing.Size(105, 17);
             this.labelBoxWidth.TabIndex = 17;
@@ -204,7 +204,7 @@ namespace ORSAPR
             this.buttonBuild.UseVisualStyleBackColor = true;
             this.buttonBuild.Click += new System.EventHandler(this.buttonBuild_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -229,8 +229,8 @@ namespace ORSAPR
             this.Controls.Add(this.textBoxTopThickness);
             this.Controls.Add(this.textBoxTopWidth);
             this.Controls.Add(this.textBoxTopLength);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainForm";
+            this.Text = "Nightstand builder";
             this.ResumeLayout(false);
             this.PerformLayout();
 

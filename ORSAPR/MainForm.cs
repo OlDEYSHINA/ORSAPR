@@ -13,7 +13,7 @@ using ModelParameters;
 
 namespace ORSAPR
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         /// <summary>
         /// Словарь для хранения сведений о TextBox
@@ -46,7 +46,7 @@ namespace ORSAPR
         /// </summary>
         private readonly List<Label> _labelList;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             _textBoxDictionary = new Dictionary<TextBox, Action<NightstandParameters, string>>()
@@ -185,7 +185,8 @@ namespace ORSAPR
 
         private void buttonBuild_Click(object sender, EventArgs e)
         {
-            textBoxBoxHeight.BackColor = Color.Red;
+          // _build.BuildNightstand(_nightstand);
+           textBoxBoxHeight.BackColor = Color.Red;
             //   MessageBox.Show("Введенное значение должно больше чем 200");
         }
     }

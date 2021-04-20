@@ -49,6 +49,10 @@
       <Project>{30908144-B134-492C-884C-DB1CB3E41F67}</Project>
       <Name>KompasConnector</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NghtstandParameters\ModelParameters.csproj">
+      <Project>{25ab8005-ae20-4559-9869-a0de504b2f24}</Project>
+      <Name>ModelParameters</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Kompas6API5">

@@ -24,12 +24,7 @@ namespace ModelParameters
         /// </summary>
         private double _defaultValue;
 
-        /// <summary>
-        ///  Поле, хранящее название параметра
-        /// </summary>
-        private string _nameParameter;
-
-        /// <summary>
+    /// <summary>
         /// Свойство, хранящее значения параметра
         /// </summary>
         public double Value
@@ -37,7 +32,7 @@ namespace ModelParameters
             get => _value;
             set
             {
-                if (String.IsNullOrEmpty(_nameParameter))
+                if (String.IsNullOrEmpty(NameParameter))
                 {
                     throw new ArgumentException("Parameter name not specified");
                 }
@@ -49,7 +44,7 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Parameter {_nameParameter} " +
+                        throw new ArgumentException($"Parameter {NameParameter} " +
                                                     $"should be more then {_maxValue} " +
                                                     $"and less then {_minValue}");
                     }
@@ -133,11 +128,7 @@ namespace ModelParameters
         /// <summary>
         /// Свойство, хранящее название параметра
         /// </summary>
-        public string NameParameter
-        {
-            get { return _nameParameter; }
-            set { _nameParameter = value; }
-        }
+        public string NameParameter { get; set; }
 
         /// <summary>
         /// Свойство, хранящее параметер по умолчанию
@@ -155,7 +146,7 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Parameter {_nameParameter} " +
+                        throw new ArgumentException($"Parameter {NameParameter} " +
                                                     $"should be more then {_maxValue} " +
                                                     $"and less then {_minValue}");
                     }
