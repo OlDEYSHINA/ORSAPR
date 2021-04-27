@@ -22,12 +22,29 @@ namespace ModelBuilder
         public void BuildNightstand(NightstandParameters nightstand)
         {
             KompasConnector.Instance.InitializationKompas();
-
+            CreateRectangle(-nightstand.TopLength.Value/2, -nightstand.TopWidth.Value / 2,
+                nightstand.TopLength.Value,nightstand.TopWidth.Value,nightstand.TopThickness.Value);
         }
 
-        private void CreateRectangle(double height, double width,double xc,double yc)
+        private void CreateRectangle(double xc, double yc, double height, double width,
+            double depth)
         {
+            ksEntity currentPlane = (ksEntity)KompasConnector.Instance.
+                KompasPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);
 
+            ksEntity sketch = (ksEntity)KompasConnector.Instance.
+                KompasPart.NewEntity((short)Obj3dType.o3d_sketch);
+            ksSketchDefinition sketchDef = sketch.GetDefinition();
+            sketchDef.SetPlane(currentPlane);
+            sketch.Create();
+            ksDocument2D document2D = (ksDocument2D)sketchDef.BeginEdit();
+            document2D.ksLineSeg(xc, yc, xc+height, yc, 1);
+            document2D.ksLineSeg(xc, yc, xc, yc+width, 1);
+            document2D.ksLineSeg(xc+height, yc, xc+height, yc+width, 1);
+            document2D.ksLineSeg(xc, yc+width, xc+height, yc+width, 1);
+            sketchDef.EndEdit();
+
+            BossExtrusion(depth, sketchDef, true);
         }
 
         /// <summary>
@@ -99,17 +116,13 @@ namespace ModelBuilder
         /// <param name="sketchDef">Эскиз</param>
         /// <param name="forward">Направление выдавливания</param>
         /// <param name="thin">тонкая стенка</param>
-        private void BossExtrusion(double height, ksSketchDefinition sketchDef, bool forward, bool thin)
+        private void BossExtrusion(double height, ksSketchDefinition sketchDef, bool forward)
         {
             var iBaseExtrusionEntity = (ksEntity)KompasConnector.Instance.
                 KompasPart.NewEntity((short)ksObj3dTypeEnum.o3d_bossExtrusion);
             // интерфейс свойств базовой операции выдавливания
             var iBaseExtrusionDef = (ksBossExtrusionDefinition)iBaseExtrusionEntity.GetDefinition();
-            //толщина выдавливания
-            if (thin)
-            {
-                iBaseExtrusionDef.SetThinParam(true, 0, 1, 1);
-            }
+           
             iBaseExtrusionDef.SetSideParam(forward, 0, height);
             // эскиз операции выдавливания
             iBaseExtrusionDef.SetSketch(sketchDef);

@@ -51,7 +51,69 @@ namespace ORSAPR
             InitializeComponent();
             _textBoxDictionary = new Dictionary<TextBox, Action<NightstandParameters, string>>()
             {
-                
+                {
+                    textBoxBoxWidth,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.BoxWidth.Value = double.Parse(text);
+                    }
+                },
+                {
+                    textBoxBoxHeight,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.BoxHeight.Value = double.Parse(text);
+                    }
+                },
+                {
+                    textBoxBoxLength,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.BoxLength.Value = double.Parse(text);
+                    }
+                },
+                {
+                    textBoxShelfHeight,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.ShelfHeight.Value = double.Parse(text);
+                    }
+                },
+                {
+                    textBoxShelfWidth,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.ShelfWidth.Value = double.Parse(text);
+                    }
+                },
+                {
+                    textBoxFootLength,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.FootLength.Value = double.Parse(text);
+                    }
+                },
+                {
+                    textBoxTopThickness,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.TopThickness.Value = double.Parse(text);
+                    }
+                },
+                {
+                    textBoxTopLength,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.TopLength.Value = double.Parse(text);
+                    }
+                },
+                {
+                    textBoxTopWidth,
+                    (NightstandParameters nightstand, string text) =>
+                    {
+                        nightstand.TopWidth.Value = double.Parse(text);
+                    }
+                }
              };
 
             _parameters = new List<Parameter>
@@ -62,8 +124,8 @@ namespace ORSAPR
                 _nightstand.ShelfHeight,
                 _nightstand.ShelfWidth,
                 _nightstand.FootLength,
-                _nightstand.TopThickness,
                 _nightstand.TopLength,
+                _nightstand.TopThickness,
                 _nightstand.TopWidth
             };
 
@@ -185,8 +247,8 @@ namespace ORSAPR
 
         private void buttonBuild_Click(object sender, EventArgs e)
         {
-          // _build.BuildNightstand(_nightstand);
-           textBoxBoxHeight.BackColor = Color.Red;
+          _build.BuildNightstand(_nightstand);
+              // textBoxBoxHeight.BackColor = Color.Red;
             //   MessageBox.Show("Введенное значение должно больше чем 200");
         }
     }

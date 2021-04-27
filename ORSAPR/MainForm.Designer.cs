@@ -56,6 +56,7 @@ namespace ORSAPR
             this.textBoxTopLength.Name = "textBoxTopLength";
             this.textBoxTopLength.Size = new System.Drawing.Size(100, 22);
             this.textBoxTopLength.TabIndex = 0;
+            this.textBoxTopLength.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxTopWidth
             // 
@@ -63,6 +64,7 @@ namespace ORSAPR
             this.textBoxTopWidth.Name = "textBoxTopWidth";
             this.textBoxTopWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxTopWidth.TabIndex = 1;
+            this.textBoxTopWidth.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxTopThickness
             // 
@@ -70,6 +72,7 @@ namespace ORSAPR
             this.textBoxTopThickness.Name = "textBoxTopThickness";
             this.textBoxTopThickness.Size = new System.Drawing.Size(100, 22);
             this.textBoxTopThickness.TabIndex = 2;
+            this.textBoxTopThickness.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxShelfWidth
             // 
@@ -77,6 +80,7 @@ namespace ORSAPR
             this.textBoxShelfWidth.Name = "textBoxShelfWidth";
             this.textBoxShelfWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxShelfWidth.TabIndex = 3;
+            this.textBoxShelfWidth.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxFootLength
             // 
@@ -84,6 +88,7 @@ namespace ORSAPR
             this.textBoxFootLength.Name = "textBoxFootLength";
             this.textBoxFootLength.Size = new System.Drawing.Size(100, 22);
             this.textBoxFootLength.TabIndex = 4;
+            this.textBoxFootLength.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxBoxLength
             // 
@@ -91,6 +96,7 @@ namespace ORSAPR
             this.textBoxBoxLength.Name = "textBoxBoxLength";
             this.textBoxBoxLength.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxLength.TabIndex = 5;
+            this.textBoxBoxLength.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxBoxHeight
             // 
@@ -98,6 +104,7 @@ namespace ORSAPR
             this.textBoxBoxHeight.Name = "textBoxBoxHeight";
             this.textBoxBoxHeight.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxHeight.TabIndex = 6;
+            this.textBoxBoxHeight.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxShelfHeight
             // 
@@ -105,6 +112,7 @@ namespace ORSAPR
             this.textBoxShelfHeight.Name = "textBoxShelfHeight";
             this.textBoxShelfHeight.Size = new System.Drawing.Size(100, 22);
             this.textBoxShelfHeight.TabIndex = 7;
+            this.textBoxShelfHeight.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // labelTopLength
             // 
@@ -184,6 +192,7 @@ namespace ORSAPR
             this.textBoxBoxWidth.Name = "textBoxBoxWidth";
             this.textBoxBoxWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxWidth.TabIndex = 16;
+            this.textBoxBoxWidth.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // labelBoxWidth
             // 
