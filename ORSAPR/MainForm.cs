@@ -115,15 +115,15 @@ namespace ORSAPR
                     }
                 }
              };
-
+            
             _parameters = new List<Parameter>
             {
                 _nightstand.BoxWidth,
                 _nightstand.BoxHeight,
                 _nightstand.BoxLength,
+                _nightstand.FootLength,
                 _nightstand.ShelfHeight,
                 _nightstand.ShelfWidth,
-                _nightstand.FootLength,
                 _nightstand.TopLength,
                 _nightstand.TopThickness,
                 _nightstand.TopWidth
@@ -145,9 +145,9 @@ namespace ORSAPR
 
             _labelList = new List<Label>
             {
+                labelBoxWidth,
                 labelBoxHeight,
                 labelBoxLength,
-                labelBoxWidth,
                 labelFootLength,
                 labelShelfHeight,
                 labelShelfWidth,
@@ -177,6 +177,8 @@ namespace ORSAPR
                 {
                     currentAction.Invoke(_nightstand, currentTextBox.Text);
                     currentTextBox.BackColor = Color.White;
+                    SetLimits();
+                    UpdateFormFields();
                     if (Validate())
                     {
                         buttonBuild.Enabled = true;
@@ -234,22 +236,9 @@ namespace ORSAPR
             }
         }
 
-        /// <summary>
-        /// Метод, присваивающий белый цвет BackColor для TextBox
-        /// </summary>
-        private void WhiteColorTextBox()
-        {
-            foreach (var currentTextBox in _textBoxList)
-            {
-                currentTextBox.BackColor = Color.White;
-            }
-        }
-
         private void buttonBuild_Click(object sender, EventArgs e)
         {
           _build.BuildNightstand(_nightstand);
-              // textBoxBoxHeight.BackColor = Color.Red;
-            //   MessageBox.Show("Введенное значение должно больше чем 200");
         }
     }
 }

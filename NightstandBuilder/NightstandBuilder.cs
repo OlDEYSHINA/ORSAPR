@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using Kompas3DConnector;
+﻿using Kompas3DConnector;
 using Kompas6API5;
 using Kompas6Constants3D;
 using ModelParameters;
@@ -22,29 +16,68 @@ namespace ModelBuilder
         public void BuildNightstand(NightstandParameters nightstand)
         {
             KompasConnector.Instance.InitializationKompas();
-            CreateRectangle(-nightstand.TopLength.Value/2, -nightstand.TopWidth.Value / 2,
-                nightstand.TopLength.Value,nightstand.TopWidth.Value,nightstand.TopThickness.Value);
+            CreateRectangle(-nightstand.TopLength.Value / 2, -nightstand.TopWidth.Value / 2,
+                nightstand.TopLength.Value, nightstand.TopWidth.Value, nightstand.TopThickness.Value, 0);
+            CreateRectangle(-nightstand.BoxLength.Value / 2, -nightstand.BoxWidth.Value / 2,
+                nightstand.BoxLength.Value, nightstand.BoxWidth.Value, nightstand.BoxHeight.Value,
+                -nightstand.TopThickness.Value);
+
+            //Legs
+            var HeightLegsBuild = -nightstand.BoxHeight.Value - nightstand.TopThickness.Value;
+            CreateRectangle(-nightstand.BoxLength.Value / 2, -nightstand.BoxWidth.Value / 2,
+                50, 50, nightstand.FootLength.Value, HeightLegsBuild);
+            CreateRectangle(-nightstand.BoxLength.Value / 2, nightstand.BoxWidth.Value / 2 - 50,
+                50, 50, nightstand.FootLength.Value, HeightLegsBuild);
+            CreateRectangle(nightstand.BoxLength.Value / 2 - 50, -nightstand.BoxWidth.Value / 2,
+                50, 50, nightstand.FootLength.Value, HeightLegsBuild);
+            CreateRectangle(nightstand.BoxLength.Value / 2-50, nightstand.BoxWidth.Value / 2-50,
+                50, 50, nightstand.FootLength.Value, HeightLegsBuild);
+            var HeightShelf = nightstand.TopThickness.Value +
+                              (nightstand.BoxHeight.Value - nightstand.ShelfHeight.Value) / 2;
+            CutRectangleShelf(nightstand.BoxLength.Value/2,nightstand.BoxLength.Value-20,nightstand.ShelfWidth.Value,
+                nightstand.ShelfHeight.Value,-HeightShelf);
+
         }
 
-        private void CreateRectangle(double xc, double yc, double height, double width,
-            double depth)
+        private void CutRectangleShelf(double xc,double length, double width, double deep,double heightCut)
         {
             ksEntity currentPlane = (ksEntity)KompasConnector.Instance.
                 KompasPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);
 
             ksEntity sketch = (ksEntity)KompasConnector.Instance.
                 KompasPart.NewEntity((short)Obj3dType.o3d_sketch);
-            ksSketchDefinition sketchDef = sketch.GetDefinition();
+            var sketchDef = CreateSketch(heightCut);
             sketchDef.SetPlane(currentPlane);
             sketch.Create();
             ksDocument2D document2D = (ksDocument2D)sketchDef.BeginEdit();
-            document2D.ksLineSeg(xc, yc, xc+height, yc, 1);
-            document2D.ksLineSeg(xc, yc, xc, yc+width, 1);
-            document2D.ksLineSeg(xc+height, yc, xc+height, yc+width, 1);
-            document2D.ksLineSeg(xc, yc+width, xc+height, yc+width, 1);
+            document2D.ksLineSeg(xc, -width/2, xc , width / 2, 1);
+          //  document2D.ksLineSeg(xc-length / 2, yc+width / 2, xc+length / 2, yc+width / 2, 1);
+           // document2D.ksLineSeg(xc+length / 2, yc+width / 2, xc+length / 2, yc - width / 2, 1);
+           // document2D.ksLineSeg(xc+length / 2, yc - width / 2, xc - length / 2, yc - width / 2, 1);
             sketchDef.EndEdit();
+           // CutExtrusion(deep,sketchDef,false);
+        }
 
-            BossExtrusion(depth, sketchDef, true);
+        private void CreateRectangle(double xc, double yc, double length, double width,
+            double depth, double heightBuild)
+        {
+
+            ksEntity currentPlane = (ksEntity)KompasConnector.Instance.
+                KompasPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);
+
+            ksEntity sketch = (ksEntity)KompasConnector.Instance.
+                KompasPart.NewEntity((short)Obj3dType.o3d_sketch);
+            var sketchDef = CreateSketch(heightBuild);
+            //          ksSketchDefinition sketchDef = sketch.GetDefinition();
+            sketchDef.SetPlane(currentPlane);
+            sketch.Create();
+            ksDocument2D document2D = (ksDocument2D)sketchDef.BeginEdit();
+            document2D.ksLineSeg(xc, yc, xc + length, yc, 1);
+            document2D.ksLineSeg(xc, yc, xc, yc + width, 1);
+            document2D.ksLineSeg(xc + length, yc, xc + length, yc + width, 1);
+            document2D.ksLineSeg(xc, yc + width, xc + length, yc + width, 1);
+            sketchDef.EndEdit();
+            BossExtrusion(depth, sketchDef, false);
         }
 
         /// <summary>
@@ -95,7 +128,7 @@ namespace ModelBuilder
         /// <param name="depth">Глубина выреза</param>
         /// <param name="sketchDef">Эскиз</param>
         ///  <param name="forward">Направление выдавливания</param>
-        private void CutExtrusion(double depth, bool forward, ksSketchDefinition sketchDef)
+        private void CutExtrusion(double depth, ksSketchDefinition sketchDef, bool forward)
         {
             var iBaseExtrusionEntity1 = (ksEntity)KompasConnector
                 .Instance.KompasPart.NewEntity((short)ksObj3dTypeEnum.o3d_cutExtrusion);
@@ -122,8 +155,13 @@ namespace ModelBuilder
                 KompasPart.NewEntity((short)ksObj3dTypeEnum.o3d_bossExtrusion);
             // интерфейс свойств базовой операции выдавливания
             var iBaseExtrusionDef = (ksBossExtrusionDefinition)iBaseExtrusionEntity.GetDefinition();
-           
+
             iBaseExtrusionDef.SetSideParam(forward, 0, height);
+
+            if (forward == false)
+            {
+                iBaseExtrusionDef.directionType = (short)Direction_Type.dtReverse;
+            }
             // эскиз операции выдавливания
             iBaseExtrusionDef.SetSketch(sketchDef);
             // создать операцию

@@ -13,10 +13,20 @@ namespace ModelParameters
         /// </summary>
         private List<Parameter> parameters = new List<Parameter>();
 
+        private Parameter _topLength;
         /// <summary>
         /// Поле, содержащее высоту столешницы 
         /// </summary>
-        public Parameter TopLength { get; set; }
+        public Parameter TopLength
+        {
+            get => _topLength;
+            set
+            {
+                _topLength = value;
+                BoxLength.MaximumValue = _topLength.Value-20;
+                if (BoxLength.Value > BoxLength.MaximumValue) BoxLength.Value = BoxLength.MaximumValue;
+            }
+        }
 
         /// <summary>
         /// Поле, содержащее ширину столешницы
@@ -33,10 +43,15 @@ namespace ModelParameters
         /// </summary>
         public Parameter BoxHeight { get; set; }
 
+        private Parameter _boxLegnth;
+
         /// <summary>
         /// Поле, содержащее ширину "туловища"
         /// </summary>
-        public Parameter BoxLength { get; set; }
+        public Parameter BoxLength
+        {
+            get => _boxLegnth; set=>_boxLegnth=value;
+        }
 
         /// <summary>
         /// Поле, содержащее глубину "туловища"
@@ -99,22 +114,22 @@ namespace ModelParameters
         }
         public NightstandParameters()
         {
+            this.BoxLength = new Parameter("Длина ящика",
+                200, 800, 400);
             this.BoxWidth = new Parameter("Ширина ящика",
                 200, 800, 400);
-            this.TopLength  = new Parameter(
-                "Длина столешницы", 200, 1000, 400);
+            this.TopLength  = new Parameter{NameParameter = "Длина столешницы" , MinimumValue = 200,
+                MaximumValue = 1000, DefaultValue = 500, Value = 500};
             this.FootLength = new Parameter("Длина ножек",
                 50, 800, 400);
             this.BoxHeight = new Parameter("Высота ящика",
-                200, 800, 400);
-            this.BoxLength = new Parameter("Длина ящика",
                 200, 800, 400);
             this.ShelfWidth = new Parameter("Ширина полки",
                 50, (this.BoxWidth.DefaultValue-20), 200);
             this.ShelfHeight = new Parameter(
                 "Высота полки", 100, (this.BoxHeight.DefaultValue-20), 200);
             this.TopWidth = new Parameter("Ширина столешницы",
-                250, 800, 400);
+                250, 800, 500);
             this.TopThickness = new Parameter("Толщина столешницы",
                 10, 100, 40);
 
