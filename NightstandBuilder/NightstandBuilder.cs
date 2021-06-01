@@ -17,10 +17,11 @@ namespace ModelBuilder
         {
             KompasConnector.Instance.InitializationKompas();
             CreateRectangle(-nightstand.TopLength.Value / 2, -nightstand.TopWidth.Value / 2,
-                nightstand.TopLength.Value, nightstand.TopWidth.Value, nightstand.TopThickness.Value, 0);
+                nightstand.TopLength.Value, nightstand.TopWidth.Value,
+                nightstand.TopThickness.Value, 0);
             CreateRectangle(-nightstand.BoxLength.Value / 2, -nightstand.BoxWidth.Value / 2,
-                nightstand.BoxLength.Value, nightstand.BoxWidth.Value, nightstand.BoxHeight.Value,
-                -nightstand.TopThickness.Value);
+                nightstand.BoxLength.Value, nightstand.BoxWidth.Value,
+                nightstand.BoxHeight.Value, -nightstand.TopThickness.Value);
 
             //Legs
             var HeightLegsBuild = -nightstand.BoxHeight.Value - nightstand.TopThickness.Value;
@@ -30,16 +31,16 @@ namespace ModelBuilder
                 50, 50, nightstand.FootLength.Value, HeightLegsBuild);
             CreateRectangle(nightstand.BoxLength.Value / 2 - 50, -nightstand.BoxWidth.Value / 2,
                 50, 50, nightstand.FootLength.Value, HeightLegsBuild);
-            CreateRectangle(nightstand.BoxLength.Value / 2-50, nightstand.BoxWidth.Value / 2-50,
+            CreateRectangle(nightstand.BoxLength.Value / 2 - 50, nightstand.BoxWidth.Value / 2 - 50,
                 50, 50, nightstand.FootLength.Value, HeightLegsBuild);
             var HeightShelf = nightstand.TopThickness.Value +
-                              (nightstand.BoxHeight.Value - nightstand.ShelfHeight.Value) / 2;
-            CutRectangleShelf(nightstand.BoxLength.Value/2,nightstand.BoxLength.Value-20,nightstand.ShelfWidth.Value,
-                nightstand.ShelfHeight.Value,-HeightShelf);
+                              (nightstand.BoxHeight.Value - nightstand.ShelfHeight.Value) / 2+nightstand.ShelfHeight.Value;
+            CutRectangleShelf(nightstand.BoxLength.Value / 2, nightstand.BoxLength.Value - 20,
+                nightstand.ShelfWidth.Value, nightstand.ShelfHeight.Value, -HeightShelf);
 
         }
 
-        private void CutRectangleShelf(double xc,double length, double width, double deep,double heightCut)
+        private void CutRectangleShelf(double xc, double length, double width, double deep, double heightCut)
         {
             ksEntity currentPlane = (ksEntity)KompasConnector.Instance.
                 KompasPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);
@@ -50,12 +51,12 @@ namespace ModelBuilder
             sketchDef.SetPlane(currentPlane);
             sketch.Create();
             ksDocument2D document2D = (ksDocument2D)sketchDef.BeginEdit();
-            document2D.ksLineSeg(xc, -width/2, xc , width / 2, 1);
-          //  document2D.ksLineSeg(xc-length / 2, yc+width / 2, xc+length / 2, yc+width / 2, 1);
-           // document2D.ksLineSeg(xc+length / 2, yc+width / 2, xc+length / 2, yc - width / 2, 1);
-           // document2D.ksLineSeg(xc+length / 2, yc - width / 2, xc - length / 2, yc - width / 2, 1);
+            document2D.ksLineSeg(xc, -width / 2, xc, width / 2, 1);
+            document2D.ksLineSeg(xc, -width / 2, xc - length+30, -width / 2, 1);
+            document2D.ksLineSeg(xc, width / 2, xc-length+30,  width / 2, 1);
+            document2D.ksLineSeg( xc - length+30, -width / 2, xc - length + 30, width / 2, 1);
             sketchDef.EndEdit();
-           // CutExtrusion(deep,sketchDef,false);
+            CutExtrusion(deep,sketchDef,false);
         }
 
         private void CreateRectangle(double xc, double yc, double length, double width,
@@ -136,6 +137,10 @@ namespace ModelBuilder
             var iBaseExtrusionDef1 = (ksCutExtrusionDefinition)iBaseExtrusionEntity1.GetDefinition();
             //толщина выдавливания
             iBaseExtrusionDef1.SetSideParam(forward, 0, depth);
+            if (forward == false)
+            {
+                iBaseExtrusionDef1.directionType = (short)Direction_Type.dtReverse;
+            }
             // эскиз операции выдавливания
             iBaseExtrusionDef1.SetSketch(sketchDef);
             // создать операцию
