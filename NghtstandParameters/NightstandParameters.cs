@@ -79,6 +79,14 @@ namespace ModelParameters
             foreach (var currentParameter in _parameters)
             {
                 currentParameter.Value = currentParameter.MaximumValue;
+                if (currentParameter.NameParameter== "Ширина ящика")
+                {
+                    ShelfWidth.MaximumValue = currentParameter.Value - 20;
+                }
+                if (currentParameter.NameParameter == "Высота ящика")
+                {
+                    ShelfHeight.MaximumValue = currentParameter.Value - 20;
+                }
             }
         }
 
@@ -91,6 +99,14 @@ namespace ModelParameters
             foreach (var currentParameter in _parameters)
             {
                 currentParameter.Value = currentParameter.MinimumValue;
+                if (currentParameter.NameParameter == "Ширина ящика")
+                {
+                    ShelfWidth.MaximumValue = currentParameter.Value - 20;
+                }
+                if (currentParameter.NameParameter == "Высота ящика")
+                {
+                    ShelfHeight.MaximumValue = currentParameter.Value - 20;
+                }
             }
         }
 
@@ -100,9 +116,17 @@ namespace ModelParameters
         /// </summary>
         public void DefaultValue()
         {
-            foreach (var carrentParameter in _parameters)
+            foreach (var currentParameter in _parameters)
             {
-                carrentParameter.Value = carrentParameter.DefaultValue;
+                currentParameter.Value = currentParameter.DefaultValue;
+                if (currentParameter.NameParameter == "Ширина ящика")
+                {
+                    ShelfWidth.MaximumValue = currentParameter.Value - 20;
+                }
+                if (currentParameter.NameParameter == "Высота ящика")
+                {
+                    ShelfHeight.MaximumValue = currentParameter.Value - 20;
+                }
             }
         }
 
@@ -115,18 +139,18 @@ namespace ModelParameters
                 200, 800, 400);
             this.BoxWidth = new Parameter("Ширина ящика",
                 200, 800, 400);
-            this.TopLength = new Parameter("Длина столешницы", 200,
-                1000, 500);
+            this.TopLength = new Parameter("Длина столешницы",
+                250, 1000, 500);
             this.FootLength = new Parameter("Длина ножек",
                 50, 800, 400);
             this.BoxHeight = new Parameter("Высота ящика",
                 200, 800, 400);
             this.ShelfWidth = new Parameter("Ширина полки",
-                50, (this.BoxWidth.DefaultValue - 20), 200);
-            this.ShelfHeight = new Parameter(
-                "Высота полки", 100, (this.BoxHeight.DefaultValue - 20), 200);
+                50, (700), 200);
+            this.ShelfHeight = new Parameter("Высота полки", 
+                100, (700), 200);
             this.TopWidth = new Parameter("Ширина столешницы",
-                250, 800, 500);
+                250, 1000, 500);
             this.TopThickness = new Parameter("Толщина столешницы",
                 10, 100, 40);
 

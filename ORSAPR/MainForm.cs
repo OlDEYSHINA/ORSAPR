@@ -22,7 +22,7 @@ namespace ORSAPR
             _textBoxDictionary;
 
         /// <summary>
-        /// Поле хранящее данные о лампе
+        /// Поле хранящее данные о тумбе
         /// </summary>
         private NightstandParameters _nightstand = new NightstandParameters{ };
 
@@ -54,13 +54,14 @@ namespace ORSAPR
         public MainForm()
         {
             InitializeComponent();
-            _textBoxDictionary = new Dictionary<TextBox, Action<NightstandParameters, string>>()
+            _textBoxDictionary = new Dictionary<TextBox, Action<NightstandParameters, string>>() 
             {
                 {
                     textBoxBoxWidth,
                     (NightstandParameters nightstand, string text) =>
                     {
                         nightstand.BoxWidth.Value = double.Parse(text);
+                        nightstand.ShelfWidth.MaximumValue = nightstand.BoxWidth.Value - 20;
                     }
                 },
                 {
@@ -68,6 +69,7 @@ namespace ORSAPR
                     (NightstandParameters nightstand, string text) =>
                     {
                         nightstand.BoxHeight.Value = double.Parse(text);
+                           nightstand.ShelfHeight.MaximumValue = nightstand.BoxHeight.Value - 20;
                     }
                 },
                 {
@@ -268,6 +270,7 @@ namespace ORSAPR
 
             UpdateFormFields();
             WhiteColorTextBox();
+            SetLimits();            
             buttonBuild.Enabled = true;
         }
 
@@ -284,11 +287,6 @@ namespace ORSAPR
         private void buttonBuild_Click(object sender, EventArgs e)
         {
           _build.BuildNightstand(_nightstand);
-        }
-
-        private void buttonSetMinParameters_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

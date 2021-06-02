@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace ModelParameters
 {
     /// <summary>
@@ -37,7 +38,7 @@ namespace ModelParameters
             {
                 if (String.IsNullOrEmpty(NameParameter))
                 {
-                    throw new ArgumentException("Parameter name not specified");
+                    throw new ArgumentException("Параметр не назван");
                 }
                 if (_maxValue > 0 && _minValue > 0)
                 {
@@ -47,15 +48,15 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Parameter {NameParameter} " +
-                                                    $"should be less then {_minValue} " +
-                                                    $"and  more then {_maxValue}");
+                        throw new ArgumentException($"Параметр {NameParameter} " +
+                                                    $"должен быть больше {_minValue} " +
+                                                    $"и меньше {_maxValue}");
                     }
                 }
                 else
                 {
-                    throw new ArgumentException("The minimum value or maximum value of the" +
-                                                " parameter is not specified");
+                    throw new ArgumentException("Минимальное или максимальное" +
+                                                " значение не установлено");
                 }
             }
         }
@@ -72,12 +73,16 @@ namespace ModelParameters
                 {
                     if (value > _minValue)
                     {
+                        if (_value > value)
+                        {
+                            _value = value;
+                        }
                         _maxValue = value;
                     }
                     else
                     {
-                        throw new ArgumentException($"Maximum parameter must be more " +
-                                                    $" Minimum parameter = {_minValue}");
+                        throw new ArgumentException($"Максимальный параметр должен быть больше " +
+                                                    $" минимального параметра = {_minValue}");
                     }
                 }
                 else
@@ -88,7 +93,7 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Maximum parameter must be more 0");
+                        throw new ArgumentException($"Максимум параметра должен быть больше 0");
                     }
                 }
             }
@@ -110,8 +115,8 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Minimum parameter must be less Maximum " +
-                                                    $"parameter = {_maxValue}");
+                        throw new ArgumentException($"Минимум параметра должен быть меньше " +
+                                                    $"максимального параметра = {_maxValue}");
                     }
                 }
                 else
@@ -122,7 +127,7 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Minimum parameter must be more or less 0");
+                        throw new ArgumentException($"Минимальный параметр должен быть больше или равен 0");
                     }
 
                 }
@@ -150,15 +155,15 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Parameter {NameParameter} " +
-                                                    $"should be less then {_minValue} " +
-                                                    $"and more then {_maxValue}");
+                        throw new ArgumentException($"Параметр {NameParameter} " +
+                                                    $"должен быть больше {_minValue} " +
+                                                    $"и меньше {_maxValue}");
                     }
                 }
                 else
                 {
-                    throw new ArgumentException("The minimum value or maximum value of the" +
-                                                " parameter is not specified");
+                    throw new ArgumentException("Минимальное или максимальное" +
+                                                " значение не установлено");
                 }
             }
         }
@@ -166,7 +171,7 @@ namespace ModelParameters
         /// <summary>
         /// Конструктор
         /// </summary>
-        public Parameter() : this("", 1, 15, 5) { }
+        public Parameter() : this("", 100, 1000, 500) { }
 
 
         /// <summary>
