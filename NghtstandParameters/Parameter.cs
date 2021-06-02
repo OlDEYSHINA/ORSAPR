@@ -2,6 +2,9 @@
 
 namespace ModelParameters
 {
+    /// <summary>
+    /// Класс параметра
+    /// </summary>
     public class Parameter
     {
         /// <summary>
@@ -24,7 +27,7 @@ namespace ModelParameters
         /// </summary>
         private double _defaultValue;
 
-    /// <summary>
+        /// <summary>
         /// Свойство, хранящее значения параметра
         /// </summary>
         public double Value
@@ -45,8 +48,8 @@ namespace ModelParameters
                     else
                     {
                         throw new ArgumentException($"Parameter {NameParameter} " +
-                                                    $"should be more then {_maxValue} " +
-                                                    $"and less then {_minValue}");
+                                                    $"should be less then {_minValue} " +
+                                                    $"and  more then {_maxValue}");
                     }
                 }
                 else
@@ -107,7 +110,8 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Minimum parameter must be less Maximum parameter = {_maxValue}");
+                        throw new ArgumentException($"Minimum parameter must be less Maximum " +
+                                                    $"parameter = {_maxValue}");
                     }
                 }
                 else
@@ -147,8 +151,8 @@ namespace ModelParameters
                     else
                     {
                         throw new ArgumentException($"Parameter {NameParameter} " +
-                                                    $"should be more then {_maxValue} " +
-                                                    $"and less then {_minValue}");
+                                                    $"should be less then {_minValue} " +
+                                                    $"and more then {_maxValue}");
                     }
                 }
                 else
@@ -159,8 +163,28 @@ namespace ModelParameters
             }
         }
 
-        public Parameter() { }
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        public Parameter() : this("", 1, 15, 5) { }
 
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="name">Название параметра</param>
+        public Parameter(string name)
+        {
+            this.NameParameter = name;
+        }
+
+        /// <summary>
+        /// Конструкор
+        /// </summary>
+        /// <param name="name">Название параметра</param>
+        /// <param name="min">Минимальное значение параметра</param>
+        /// <param name="max">Максимальное значение параметра</param>
+        /// <param name="defaultValue">Значение параметра по умолчанию</param>
         public Parameter(string name, double min, double max, double defaultValue)
         {
             this.MinimumValue = min;
@@ -168,7 +192,6 @@ namespace ModelParameters
             this.NameParameter = name;
             this.DefaultValue = defaultValue;
         }
-
 
     }
 }

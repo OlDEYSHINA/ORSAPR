@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ModelParameters
 {
@@ -11,7 +7,8 @@ namespace ModelParameters
         /// <summary>
         /// Лист параметров
         /// </summary>
-        private List<Parameter> parameters = new List<Parameter>();
+        private readonly List<Parameter> _parameters;
+
 
         private Parameter _topLength;
         /// <summary>
@@ -20,12 +17,12 @@ namespace ModelParameters
         public Parameter TopLength
         {
             get => _topLength;
-            set
-            {
+            set => _topLength = value;
+            /*  {
                 _topLength = value;
-                BoxLength.MaximumValue = _topLength.Value-20;
+                BoxLength.MaximumValue = _topLength.Value;
                 if (BoxLength.Value > BoxLength.MaximumValue) BoxLength.Value = BoxLength.MaximumValue;
-            }
+            }*/
         }
 
         /// <summary>
@@ -50,7 +47,7 @@ namespace ModelParameters
         /// </summary>
         public Parameter BoxLength
         {
-            get => _boxLegnth; set=>_boxLegnth=value;
+            get => _boxLegnth; set => _boxLegnth = value;
         }
 
         /// <summary>
@@ -73,75 +70,79 @@ namespace ModelParameters
         /// </summary>
         public Parameter FootLength { get; set; }
 
+        /// <summary>
+        /// Свойство, присваивающе максимальное
+        /// значение для зависимых параметров
+        /// </summary>
         public void MaxValue()
         {
-            BoxWidth.Value = BoxWidth.MaximumValue;
-            TopLength.Value = TopThickness.MaximumValue;
-            FootLength.Value = FootLength.MaximumValue;
-            ShelfWidth.Value = ShelfWidth.MaximumValue;
-            ShelfHeight.Value = ShelfHeight.MaximumValue;
-            BoxLength.Value = BoxLength.MaximumValue;
-            TopWidth.Value = TopWidth.MaximumValue;
-            BoxHeight.Value = BoxHeight.MaximumValue;
-            TopThickness.Value = TopThickness.MaximumValue;
+            foreach (var currentParameter in _parameters)
+            {
+                currentParameter.Value = currentParameter.MaximumValue;
+            }
         }
+
+        /// <summary>
+        /// Свойство, присваивающее минимальное
+        /// значение для зависимых параметров
+        /// </summary>
         public void MinValue()
         {
-            BoxWidth.Value = BoxWidth.MinimumValue;
-            TopLength.Value = TopThickness.MinimumValue;
-            FootLength.Value = FootLength.MinimumValue;
-            ShelfWidth.Value = ShelfWidth.MinimumValue;
-            ShelfHeight.Value = ShelfHeight.MinimumValue;
-            BoxLength.Value = BoxLength.MinimumValue;
-            TopWidth.Value = TopWidth.MinimumValue;
-            BoxHeight.Value = BoxHeight.MinimumValue;
-            TopThickness.Value = TopThickness.MinimumValue;
+            foreach (var currentParameter in _parameters)
+            {
+                currentParameter.Value = currentParameter.MinimumValue;
+            }
         }
+
         /// <summary>
-        /// Свойство, присваивающее значение по умолчанию для зависимых параметров
+        /// Свойство, присваивающее значение по умолчанию
+        /// для зависимых параметров
         /// </summary>
         public void DefaultValue()
         {
-            BoxWidth.Value = BoxWidth.DefaultValue;
-            TopLength.Value = TopLength.DefaultValue;
-            FootLength.Value = FootLength.DefaultValue;
-            ShelfWidth.Value = ShelfWidth.DefaultValue;
-            ShelfHeight.Value = ShelfHeight.DefaultValue;
-            BoxLength.Value = BoxLength.DefaultValue;
-            TopWidth.Value = TopWidth.DefaultValue;
-            BoxHeight.Value = BoxHeight.DefaultValue;
-            TopThickness.Value = TopThickness.DefaultValue;
+            foreach (var carrentParameter in _parameters)
+            {
+                carrentParameter.Value = carrentParameter.DefaultValue;
+            }
         }
+
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
         public NightstandParameters()
         {
             this.BoxLength = new Parameter("Длина ящика",
                 200, 800, 400);
             this.BoxWidth = new Parameter("Ширина ящика",
                 200, 800, 400);
-            this.TopLength  = new Parameter{NameParameter = "Длина столешницы" , MinimumValue = 200,
-                MaximumValue = 1000, DefaultValue = 500, Value = 500};
+            this.TopLength = new Parameter("Длина столешницы", 200,
+                1000, 500);
             this.FootLength = new Parameter("Длина ножек",
                 50, 800, 400);
             this.BoxHeight = new Parameter("Высота ящика",
                 200, 800, 400);
             this.ShelfWidth = new Parameter("Ширина полки",
-                50, (this.BoxWidth.DefaultValue-20), 200);
+                50, (this.BoxWidth.DefaultValue - 20), 200);
             this.ShelfHeight = new Parameter(
-                "Высота полки", 100, (this.BoxHeight.DefaultValue-20), 200);
+                "Высота полки", 100, (this.BoxHeight.DefaultValue - 20), 200);
             this.TopWidth = new Parameter("Ширина столешницы",
                 250, 800, 500);
             this.TopThickness = new Parameter("Толщина столешницы",
                 10, 100, 40);
 
-            parameters.Add(BoxWidth);
-            parameters.Add(TopLength);
-            parameters.Add(FootLength);
-            parameters.Add(ShelfWidth);
-            parameters.Add(ShelfHeight);
-            parameters.Add(BoxLength);
-            parameters.Add(TopWidth);
-            parameters.Add(BoxHeight);
-            parameters.Add(TopThickness);
+            _parameters = new List<Parameter>
+            {
+                 BoxWidth,
+                 TopLength,
+                 FootLength,
+                 ShelfWidth,
+                 ShelfHeight,
+                 BoxLength,
+                 TopWidth,
+                 BoxHeight,
+                 TopThickness
+        };
+
         }
     }
 }

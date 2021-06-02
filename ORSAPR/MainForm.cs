@@ -46,6 +46,11 @@ namespace ORSAPR
         /// </summary>
         private readonly List<Label> _labelList;
 
+        /// <summary>
+        /// Лист c текстбоксами
+        /// </summary>
+        private readonly List<string> _sizeParameters;
+
         public MainForm()
         {
             InitializeComponent();
@@ -115,6 +120,7 @@ namespace ORSAPR
                     }
                 }
              };
+
             
             _parameters = new List<Parameter>
             {
@@ -156,6 +162,14 @@ namespace ORSAPR
                 labelTopWedth
             };
 
+            _sizeParameters = new List<string>
+            {
+                "Maximum value",
+                "Minimum value",
+                "Default value"
+            };
+            comboBoxSize.Items.AddRange(_sizeParameters.ToArray());
+            comboBoxSize.SelectedItem = "Default value";
             _nightstand.DefaultValue();
             UpdateFormFields();
             SetLimits();
@@ -236,9 +250,45 @@ namespace ORSAPR
             }
         }
 
+        private void ApplyButton_Click(object sender, EventArgs e)
+        {
+            if (comboBoxSize.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            var tmpDictionary = new Dictionary<string, Action>()
+            {
+                {_sizeParameters[0], () => _nightstand.MaxValue()},
+                {_sizeParameters[1], () => _nightstand.MinValue()},
+                {_sizeParameters[2], () => _nightstand.DefaultValue()},
+            };
+
+            tmpDictionary[comboBoxSize.SelectedItem.ToString()].Invoke();
+
+            UpdateFormFields();
+            WhiteColorTextBox();
+            buttonBuild.Enabled = true;
+        }
+
+        /// <summary>
+        /// Метод, присваивающий белый цвет BackColor для TextBox
+        /// </summary>
+        private void WhiteColorTextBox()
+        {
+            foreach (var currentTextBox in _textBoxList)
+            {
+                currentTextBox.BackColor = Color.White;
+            }
+        }
         private void buttonBuild_Click(object sender, EventArgs e)
         {
           _build.BuildNightstand(_nightstand);
+        }
+
+        private void buttonSetMinParameters_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
