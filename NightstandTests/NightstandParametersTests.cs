@@ -154,26 +154,7 @@ namespace UnitTestNightstandParameters
                 NUnit.Framework.Assert.AreEqual(expectedValue, actualValue);
             }
         }
-
-     /*   [TestCase(TestName = "Позитивный метод для DepthHole, производится сложение 3 " +
-                             "параметров и считывание")]
-        public void DepthHole_GoodNightstandParameters_ReturnSameDepthHole()
-        {
-            // Setup
-            var nightstand = new NightstandParameters();
-            nightstand.BodyHeight.Value = 75;
-            nightstand.TubeHeight.Value = 150;
-            nightstand.SocketPlatformHeight.Value = 3.5;
-            var expectedDepthHole = nightstand.BodyHeight.Value + nightstand.TubeHeight.Value +
-                                    nightstand.SocketPlatformHeight.Value;
-
-            // Act
-            var actualDepthHole = nightstand.DepthHole;
-
-            // Assert
-            NUnit.Framework.Assert.AreEqual(expectedDepthHole, actualDepthHole);
-
-        }*/
+        
 
     }
 }

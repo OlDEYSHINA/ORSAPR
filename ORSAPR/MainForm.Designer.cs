@@ -228,7 +228,7 @@ namespace ORSAPR
             // buttonConfirmParameters
             // 
             this.buttonConfirmParameters.Location = new System.Drawing.Point(268, 277);
-            this.buttonConfirmParameters.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonConfirmParameters.Margin = new System.Windows.Forms.Padding(4);
             this.buttonConfirmParameters.Name = "buttonConfirmParameters";
             this.buttonConfirmParameters.Size = new System.Drawing.Size(135, 28);
             this.buttonConfirmParameters.TabIndex = 21;
@@ -240,7 +240,7 @@ namespace ORSAPR
             // 
             this.comboBoxSize.FormattingEnabled = true;
             this.comboBoxSize.Location = new System.Drawing.Point(28, 277);
-            this.comboBoxSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxSize.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSize.Name = "comboBoxSize";
             this.comboBoxSize.Size = new System.Drawing.Size(191, 24);
             this.comboBoxSize.TabIndex = 22;
@@ -273,6 +273,8 @@ namespace ORSAPR
             this.Controls.Add(this.textBoxTopWidth);
             this.Controls.Add(this.textBoxTopLength);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(437, 435);
+            this.MinimumSize = new System.Drawing.Size(437, 435);
             this.Name = "MainForm";
             this.Text = "Nightstand builder";
             this.ResumeLayout(false);

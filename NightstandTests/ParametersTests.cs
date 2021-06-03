@@ -3,7 +3,7 @@ using NUnit.Framework;
 using ModelParameters;
 
 
-namespace UnitTestLampParameters
+namespace UnitTestNightstandParameters
 {
     [TestFixture]
     public class ParameterTests
@@ -224,7 +224,7 @@ namespace UnitTestLampParameters
         {
             // Setup
             var parameter = new Parameter();
-            var sourceDefaultValue = 10;
+            var sourceDefaultValue = 200;
             var expectedDefaultValue = sourceDefaultValue;
 
             // Act

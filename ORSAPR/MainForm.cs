@@ -252,6 +252,9 @@ namespace ORSAPR
             }
         }
 
+        /// <summary>
+        /// Кнопка подтверждения установки предустановленных параметров
+        /// </summary>
         private void ApplyButton_Click(object sender, EventArgs e)
         {
             if (comboBoxSize.SelectedIndex == -1)

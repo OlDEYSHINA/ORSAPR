@@ -82,10 +82,12 @@ namespace ModelParameters
                 if (currentParameter.NameParameter== "Ширина ящика")
                 {
                     ShelfWidth.MaximumValue = currentParameter.Value - 20;
+                    ShelfWidth.Value = currentParameter.Value - 20;
                 }
                 if (currentParameter.NameParameter == "Высота ящика")
                 {
                     ShelfHeight.MaximumValue = currentParameter.Value - 20;
+                    ShelfWidth.Value = currentParameter.Value - 20;
                 }
             }
         }
@@ -159,11 +161,11 @@ namespace ModelParameters
                  BoxWidth,
                  TopLength,
                  FootLength,
+                 BoxHeight,
                  ShelfWidth,
                  ShelfHeight,
                  BoxLength,
                  TopWidth,
-                 BoxHeight,
                  TopThickness
         };
 

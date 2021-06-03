@@ -59,6 +59,15 @@ namespace ModelBuilder
             CutExtrusion(deep,sketchDef,false);
         }
 
+        /// <summary>
+        /// Метод создания прямоугольника с дальнейшим выдавливанием
+        /// </summary>
+        /// <param name="xc">Х координата начала</param>
+        /// <param name="yc">У координата начала</param>
+        /// <param name="length">Длина прямоугольника</param>
+        /// <param name="width">Ширина прямоугольника</param>
+        /// <param name="depth">Глубина выдавливания</param>
+        /// <param name="heightBuild">Высота смещения рабочей плоскости</param>
         private void CreateRectangle(double xc, double yc, double length, double width,
             double depth, double heightBuild)
         {
@@ -153,7 +162,6 @@ namespace ModelBuilder
         /// <param name="height">Высота выдавливания</param>
         /// <param name="sketchDef">Эскиз</param>
         /// <param name="forward">Направление выдавливания</param>
-        /// <param name="thin">тонкая стенка</param>
         private void BossExtrusion(double height, ksSketchDefinition sketchDef, bool forward)
         {
             var iBaseExtrusionEntity = (ksEntity)KompasConnector.Instance.
