@@ -40,6 +40,14 @@ namespace ModelBuilder
 
         }
 
+        /// <summary>
+        /// Вырезание выдавливанием
+        /// </summary>
+        /// <param name="xc">Х координата стенки</param>
+        /// <param name="length">Длина полки</param>
+        /// <param name="width">Ширина полки</param>
+        /// <param name="deep">Глубина выдавливания</param>
+        /// <param name="heightCut">Высота плоскости вырезания</param>
         private void CutRectangleShelf(double xc, double length, double width, double deep, double heightCut)
         {
             ksEntity currentPlane = (ksEntity)KompasConnector.Instance.
