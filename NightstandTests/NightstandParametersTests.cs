@@ -54,19 +54,19 @@ namespace UnitTestNightstandParameters
             return parameters;
         }
 
-        [TestCase("BoxWidth", TestName = "Позитивный метод для BodyDiameter, производится ввод и " +
+        [TestCase("BoxWidth", TestName = "Позитивный метод для BoxWidth, производится ввод и " +
                                              "считывание параметров")]
-        [TestCase("BoxHeight", TestName = "Позитивный метод для BodyHeight, производится ввод и " +
+        [TestCase("BoxHeight", TestName = "Позитивный метод для BoxHeight, производится ввод и " +
                                           "считывание параметров")]
-        [TestCase("BoxLength", TestName = "Позитивный метод для SocketPlatformDiameter," +
+        [TestCase("BoxLength", TestName = "Позитивный метод для BoxLength," +
                                                        " производится ввод и считывание параметров")]
-        [TestCase("FootLength", TestName = "Позитивный метод для SocketPlatformHeight, " +
+        [TestCase("FootLength", TestName = "Позитивный метод для FootLength, " +
                                                      "производится ввод и считывание параметров")]
-        [TestCase("ShelfHeight", TestName = "Позитивный метод для TubeDiameter, производится ввод и" +
+        [TestCase("ShelfHeight", TestName = "Позитивный метод для ShelfHeight, производится ввод и" +
                                              " считывание параметров")]
-        [TestCase("ShelfWidth", TestName = "Позитивный метод для TubeHeight, производится ввод и" +
+        [TestCase("ShelfWidth", TestName = "Позитивный метод для ShelfWidth, производится ввод и" +
                                            " считывание параметров")]
-        public void Test_GoodParameter_ReternSameParameter(string nameParameter)
+        public void Test_GoodParameter_ReturnSameParameter(string nameParameter)
         {
             // Setup
             Parameter myParameter;
@@ -88,7 +88,7 @@ namespace UnitTestNightstandParameters
             }
             else
             {
-                throw new ArgumentException("Name parameter not found");
+                throw new ArgumentException("Параметр не найден");
             }
         }
         

@@ -21,7 +21,10 @@ namespace ModelParameters
             /*  {
                 _topLength = value;
                 BoxLength.MaximumValue = _topLength.Value;
-                if (BoxLength.Value > BoxLength.MaximumValue) BoxLength.Value = BoxLength.MaximumValue;
+                if (BoxLength.Value > BoxLength.MaximumValue) 
+            {
+            BoxLength.Value = BoxLength.MaximumValue;
+            }
             }*/
         }
 
