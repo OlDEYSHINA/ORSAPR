@@ -8,6 +8,7 @@ using ModelParameters;
 
 namespace ModelBuilder
 {
+    //TODO: XML комментарии?
     public class NightstandBuilder
     {
         /// <summary>

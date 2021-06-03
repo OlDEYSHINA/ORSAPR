@@ -313,6 +313,8 @@ namespace ORSAPR
                 currentTextBox.BackColor = Color.White;
             }
         }
+
+        //TODO: XML комментарии?
         private void buttonBuild_Click(object sender, EventArgs e)
         {
           _build.BuildNightstand(_nightstand);

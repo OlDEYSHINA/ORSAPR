@@ -73,6 +73,7 @@ namespace ModelParameters
                 {
                     if (value > _minValue)
                     {
+                        //TODO: Не покрыто тестами
                         if (_value > value)
                         {
                             _value = value;
@@ -81,6 +82,7 @@ namespace ModelParameters
                     }
                     else
                     {
+                         //TODO: RSDN
                         throw new ArgumentException($"Максимальный параметр должен быть больше " +
                                                     $" минимального параметра = {_minValue}");
                     }
@@ -127,6 +129,7 @@ namespace ModelParameters
                     }
                     else
                     {
+                         //TODO: RSDN
                         throw new ArgumentException($"Минимальный параметр должен быть больше или равен 0");
                     }
 
