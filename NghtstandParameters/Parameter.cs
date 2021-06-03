@@ -49,8 +49,8 @@ namespace ModelParameters
                     else
                     {
                         throw new ArgumentException($"Параметр {NameParameter} " +
-                                                    $"должен быть больше {_minValue} " +
-                                                    $"и меньше {_maxValue}");
+                                                    $"должен быть меньше {_maxValue}" + 
+                                                    $"и больше {_minValue} ");
                     }
                 }
                 else
@@ -156,8 +156,8 @@ namespace ModelParameters
                     else
                     {
                         throw new ArgumentException($"Параметр {NameParameter} " +
-                                                    $"должен быть больше {_minValue} " +
-                                                    $"и меньше {_maxValue}");
+                                                    $"должен быть меньше {_maxValue}" +
+                                                    $"и больше {_minValue} ");
                     }
                 }
                 else
