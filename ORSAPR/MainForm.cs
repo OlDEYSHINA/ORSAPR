@@ -50,6 +50,7 @@ namespace ORSAPR
         /// Лист c текстбоксами
         /// </summary>
         private readonly List<string> _sizeParameters;
+        
 
         public MainForm()
         {
@@ -177,6 +178,31 @@ namespace ORSAPR
             SetLimits();
         }
 
+
+        /// <summary>
+        /// Обработчик, который позволяет вводить только цифры и запятую в TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBoxAllowOnlyNumbers(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ',')
+            {
+                TextBox txt = (TextBox)sender;
+                if (txt.Text.Contains(","))
+                {
+                    e.Handled = true;
+                }
+                return;
+            }
+
+            if (Char.IsDigit(e.KeyChar)) return;
+
+            if ((e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
 
         /// <summary>
         /// Обработчик для присваивания значений из TextBox 

@@ -59,6 +59,7 @@ namespace ORSAPR
             this.textBoxTopLength.Name = "textBoxTopLength";
             this.textBoxTopLength.Size = new System.Drawing.Size(100, 22);
             this.textBoxTopLength.TabIndex = 0;
+            this.textBoxTopLength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxTopLength.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxTopWidth
@@ -68,6 +69,7 @@ namespace ORSAPR
             this.textBoxTopWidth.Name = "textBoxTopWidth";
             this.textBoxTopWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxTopWidth.TabIndex = 1;
+            this.textBoxTopWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxTopWidth.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxTopThickness
@@ -77,6 +79,7 @@ namespace ORSAPR
             this.textBoxTopThickness.Name = "textBoxTopThickness";
             this.textBoxTopThickness.Size = new System.Drawing.Size(100, 22);
             this.textBoxTopThickness.TabIndex = 2;
+            this.textBoxTopThickness.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxTopThickness.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxShelfWidth
@@ -86,6 +89,7 @@ namespace ORSAPR
             this.textBoxShelfWidth.Name = "textBoxShelfWidth";
             this.textBoxShelfWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxShelfWidth.TabIndex = 3;
+            this.textBoxShelfWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxShelfWidth.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxFootLength
@@ -95,6 +99,7 @@ namespace ORSAPR
             this.textBoxFootLength.Name = "textBoxFootLength";
             this.textBoxFootLength.Size = new System.Drawing.Size(100, 22);
             this.textBoxFootLength.TabIndex = 4;
+            this.textBoxFootLength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxFootLength.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxBoxLength
@@ -104,6 +109,7 @@ namespace ORSAPR
             this.textBoxBoxLength.Name = "textBoxBoxLength";
             this.textBoxBoxLength.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxLength.TabIndex = 5;
+            this.textBoxBoxLength.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxBoxLength.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxBoxHeight
@@ -113,6 +119,7 @@ namespace ORSAPR
             this.textBoxBoxHeight.Name = "textBoxBoxHeight";
             this.textBoxBoxHeight.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxHeight.TabIndex = 6;
+            this.textBoxBoxHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxBoxHeight.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // textBoxShelfHeight
@@ -122,6 +129,7 @@ namespace ORSAPR
             this.textBoxShelfHeight.Name = "textBoxShelfHeight";
             this.textBoxShelfHeight.Size = new System.Drawing.Size(100, 22);
             this.textBoxShelfHeight.TabIndex = 7;
+            this.textBoxShelfHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxShelfHeight.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // labelTopLength
@@ -129,7 +137,7 @@ namespace ORSAPR
             this.labelTopLength.AutoSize = true;
             this.labelTopLength.Location = new System.Drawing.Point(25, 14);
             this.labelTopLength.Name = "labelTopLength";
-            this.labelTopLength.Size = new System.Drawing.Size(138, 17);
+            this.labelTopLength.Size = new System.Drawing.Size(132, 16);
             this.labelTopLength.TabIndex = 8;
             this.labelTopLength.Text = "Длина столешницы";
             // 
@@ -138,7 +146,7 @@ namespace ORSAPR
             this.labelTopWedth.AutoSize = true;
             this.labelTopWedth.Location = new System.Drawing.Point(25, 42);
             this.labelTopWedth.Name = "labelTopWedth";
-            this.labelTopWedth.Size = new System.Drawing.Size(146, 17);
+            this.labelTopWedth.Size = new System.Drawing.Size(142, 16);
             this.labelTopWedth.TabIndex = 9;
             this.labelTopWedth.Text = "Ширина столешницы";
             // 
@@ -147,7 +155,7 @@ namespace ORSAPR
             this.labelTopThickness.AutoSize = true;
             this.labelTopThickness.Location = new System.Drawing.Point(25, 70);
             this.labelTopThickness.Name = "labelTopThickness";
-            this.labelTopThickness.Size = new System.Drawing.Size(155, 17);
+            this.labelTopThickness.Size = new System.Drawing.Size(149, 16);
             this.labelTopThickness.TabIndex = 10;
             this.labelTopThickness.Text = "Толщина столешницы";
             // 
@@ -156,7 +164,7 @@ namespace ORSAPR
             this.labelFootLength.AutoSize = true;
             this.labelFootLength.Location = new System.Drawing.Point(25, 238);
             this.labelFootLength.Name = "labelFootLength";
-            this.labelFootLength.Size = new System.Drawing.Size(95, 17);
+            this.labelFootLength.Size = new System.Drawing.Size(92, 16);
             this.labelFootLength.TabIndex = 11;
             this.labelFootLength.Text = "Длина ножек";
             // 
@@ -165,7 +173,7 @@ namespace ORSAPR
             this.labelBoxLength.AutoSize = true;
             this.labelBoxLength.Location = new System.Drawing.Point(25, 126);
             this.labelBoxLength.Name = "labelBoxLength";
-            this.labelBoxLength.Size = new System.Drawing.Size(97, 17);
+            this.labelBoxLength.Size = new System.Drawing.Size(91, 16);
             this.labelBoxLength.TabIndex = 12;
             this.labelBoxLength.Text = "Длина ящика";
             // 
@@ -174,7 +182,7 @@ namespace ORSAPR
             this.labelBoxHeight.AutoSize = true;
             this.labelBoxHeight.Location = new System.Drawing.Point(25, 154);
             this.labelBoxHeight.Name = "labelBoxHeight";
-            this.labelBoxHeight.Size = new System.Drawing.Size(103, 17);
+            this.labelBoxHeight.Size = new System.Drawing.Size(98, 16);
             this.labelBoxHeight.TabIndex = 13;
             this.labelBoxHeight.Text = "Высота ящика";
             // 
@@ -183,7 +191,7 @@ namespace ORSAPR
             this.labelShelfHeight.AutoSize = true;
             this.labelShelfHeight.Location = new System.Drawing.Point(25, 182);
             this.labelShelfHeight.Name = "labelShelfHeight";
-            this.labelShelfHeight.Size = new System.Drawing.Size(100, 17);
+            this.labelShelfHeight.Size = new System.Drawing.Size(98, 16);
             this.labelShelfHeight.TabIndex = 14;
             this.labelShelfHeight.Text = "Высота полки";
             // 
@@ -192,7 +200,7 @@ namespace ORSAPR
             this.labelShelfWidth.AutoSize = true;
             this.labelShelfWidth.Location = new System.Drawing.Point(25, 210);
             this.labelShelfWidth.Name = "labelShelfWidth";
-            this.labelShelfWidth.Size = new System.Drawing.Size(102, 17);
+            this.labelShelfWidth.Size = new System.Drawing.Size(101, 16);
             this.labelShelfWidth.TabIndex = 15;
             this.labelShelfWidth.Text = "Ширина полки";
             // 
@@ -203,6 +211,7 @@ namespace ORSAPR
             this.textBoxBoxWidth.Name = "textBoxBoxWidth";
             this.textBoxBoxWidth.Size = new System.Drawing.Size(100, 22);
             this.textBoxBoxWidth.TabIndex = 16;
+            this.textBoxBoxWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxAllowOnlyNumbers);
             this.textBoxBoxWidth.Leave += new System.EventHandler(this.TextBoxLeave);
             // 
             // labelBoxWidth
@@ -210,7 +219,7 @@ namespace ORSAPR
             this.labelBoxWidth.AutoSize = true;
             this.labelBoxWidth.Location = new System.Drawing.Point(25, 98);
             this.labelBoxWidth.Name = "labelBoxWidth";
-            this.labelBoxWidth.Size = new System.Drawing.Size(105, 17);
+            this.labelBoxWidth.Size = new System.Drawing.Size(101, 16);
             this.labelBoxWidth.TabIndex = 17;
             this.labelBoxWidth.Text = "Ширина ящика";
             // 
@@ -250,7 +259,7 @@ namespace ORSAPR
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(419, 388);
+            this.ClientSize = new System.Drawing.Size(421, 396);
             this.Controls.Add(this.comboBoxSize);
             this.Controls.Add(this.buttonConfirmParameters);
             this.Controls.Add(this.buttonBuild);
