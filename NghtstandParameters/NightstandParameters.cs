@@ -9,25 +9,11 @@ namespace ModelParameters
         /// </summary>
         private readonly List<Parameter> _parameters;
 
-
-        private Parameter _topLength;
         /// <summary>
         /// Поле, содержащее высоту столешницы 
         /// </summary>
-        public Parameter TopLength
-        {
-            get => _topLength;
-            set => _topLength = value;
-            /*  {
-                _topLength = value;
-                BoxLength.MaximumValue = _topLength.Value;
-                if (BoxLength.Value > BoxLength.MaximumValue) 
-            {
-            BoxLength.Value = BoxLength.MaximumValue;
-            }
-            }*/
-        }
-
+        public Parameter TopLength { get; set; }
+       
         /// <summary>
         /// Поле, содержащее ширину столешницы
         /// </summary>
@@ -43,16 +29,11 @@ namespace ModelParameters
         /// </summary>
         public Parameter BoxHeight { get; set; }
 
-        private Parameter _boxLegnth;
-
         /// <summary>
         /// Поле, содержащее ширину "туловища"
         /// </summary>
-        public Parameter BoxLength
-        {
-            get => _boxLegnth; set => _boxLegnth = value;
-        }
-
+        public Parameter BoxLength { get; set; }
+       
         /// <summary>
         /// Поле, содержащее глубину "туловища"
         /// </summary>
