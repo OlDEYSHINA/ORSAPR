@@ -51,7 +51,10 @@ namespace ORSAPR
         /// </summary>
         private readonly List<string> _sizeParameters;
         
-        //TODO: XML комментарии?
+        //TODO: XML комментарии? +
+        /// <summary>
+        ///  Форма ввода параметров, содержащая кнопку, постройки тумбочки
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -314,8 +317,11 @@ namespace ORSAPR
             }
         }
 
-        //TODO: XML комментарии?
-        private void buttonBuild_Click(object sender, EventArgs e)
+        //TODO: XML комментарии? +
+        /// <summary>
+        /// Кнопка постройки тумбочки
+        /// </summary>
+        private void buildButton_Click(object sender, EventArgs e)
         {
           _build.BuildNightstand(_nightstand);
         }

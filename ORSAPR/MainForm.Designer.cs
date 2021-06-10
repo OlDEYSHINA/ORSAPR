@@ -232,7 +232,7 @@ namespace ORSAPR
             this.buttonBuild.TabIndex = 18;
             this.buttonBuild.Text = "Построить";
             this.buttonBuild.UseVisualStyleBackColor = true;
-            this.buttonBuild.Click += new System.EventHandler(this.buttonBuild_Click);
+            this.buttonBuild.Click += new System.EventHandler(this.buildButton_Click);
             // 
             // buttonConfirmParameters
             // 
