@@ -8,7 +8,10 @@ using ModelParameters;
 
 namespace ModelBuilder
 {
-    //TODO: XML комментарии?
+
+    /// <summary>
+    /// Класс постройки тумбочки
+    /// </summary>
     public class NightstandBuilder
     {
         /// <summary>

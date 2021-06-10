@@ -83,8 +83,9 @@ namespace ModelParameters
                     else
                     {
                          //TODO: RSDN
-                        throw new ArgumentException($"Максимальный параметр должен быть больше " +
-                                                    $" минимального параметра = {_minValue}");
+                        throw new ArgumentException(
+                            $"Максимальный параметр должен быть больше " +
+                            $" минимального параметра = {_minValue}");
                     }
                 }
                 else
@@ -95,7 +96,8 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Максимум параметра должен быть больше 0");
+                        throw new ArgumentException(
+                            $"Максимум параметра должен быть больше 0");
                     }
                 }
             }
@@ -117,8 +119,9 @@ namespace ModelParameters
                     }
                     else
                     {
-                        throw new ArgumentException($"Минимум параметра должен быть меньше " +
-                                                    $"максимального параметра = {_maxValue}");
+                        throw new ArgumentException(
+                            $"Минимум параметра должен быть меньше " +
+                            $"максимального параметра = {_maxValue}");
                     }
                 }
                 else
@@ -130,7 +133,9 @@ namespace ModelParameters
                     else
                     {
                          //TODO: RSDN
-                        throw new ArgumentException($"Минимальный параметр должен быть больше или равен 0");
+                        throw new ArgumentException(
+                            $"Минимальный параметр должен " +
+                            $"быть больше или равен 0");
                     }
 
                 }

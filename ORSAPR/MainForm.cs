@@ -42,12 +42,12 @@ namespace ORSAPR
         private readonly List<TextBox> _textBoxList;
 
         /// <summary>
-        /// Лист c текстбоксами
+        /// Лист c строками
         /// </summary>
         private readonly List<Label> _labelList;
 
         /// <summary>
-        /// Лист c текстбоксами
+        /// Лист c названиями возможных предвведенных параметров
         /// </summary>
         private readonly List<string> _sizeParameters;
         

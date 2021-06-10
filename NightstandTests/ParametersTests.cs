@@ -305,6 +305,29 @@ namespace UnitTestNightstandParameters
                     parameter.DefaultValue = sourceValue;
                 }
             );
+
+        }
+
+        [TestCase(TestName = "Позитивный тест, когда значение получается выше максимального")]
+        public void DefaultValue_UnderMaxValue_ReturnsMaxValue()
+        {
+            // Setup
+            var parameter = new Parameter();
+            parameter.NameParameter = "test";
+            var sourceValue = 400;
+            var max1Value = 500;
+            var max2Value = 300;
+            var expectedDefaultValue = max2Value;
+            
+            // Act
+            parameter.MaximumValue = max1Value;
+            parameter.Value = sourceValue;
+            parameter.MaximumValue = max2Value;
+            var actualValue = parameter.Value;
+           
+
+            // Assert
+            NUnit.Framework.Assert.AreEqual(expectedDefaultValue, actualValue);
         }
     }
 }

@@ -66,6 +66,10 @@ namespace UnitTestNightstandParameters
                                              " считывание параметров")]
         [TestCase("ShelfWidth", TestName = "Позитивный метод для ShelfWidth, производится ввод и" +
                                            " считывание параметров")]
+        [TestCase("TopLength", TestName = "Позитивный метод для TopLength, производится ввод и" +
+                                           " считывание параметров")]
+        [TestCase("TopWidth", TestName = "Позитивный метод для TopWidth, производится ввод и" +
+                                           " считывание параметров")]
         public void Test_GoodParameter_ReturnSameParameter(string nameParameter)
         {
             // Setup
