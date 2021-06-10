@@ -51,7 +51,7 @@ namespace ORSAPR
         /// </summary>
         private readonly List<string> _sizeParameters;
         
-
+        //TODO: XML комментарии?
         public MainForm()
         {
             InitializeComponent();

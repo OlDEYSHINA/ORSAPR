@@ -151,7 +151,7 @@ namespace ModelParameters
                  BoxLength,
                  TopWidth,
                  TopThickness
-        };
+            };
 
         }
     }
